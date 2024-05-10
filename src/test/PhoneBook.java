@@ -30,6 +30,7 @@ public class PhoneBook {
 		switch (key) { 
 			case "1": 
 				allList(dao);
+				System.out.println();
 				menu();
 				break;
 			case "2" :
@@ -45,7 +46,9 @@ public class PhoneBook {
 				menu();
 				break;
 			case "5" :
-				menu();
+				System.out.println("******************************");
+				System.out.println("*          감사합니다           *");
+				System.out.println("******************************");
 				break;
 			default : System.out.println("올바른 값 입력!");
 		}
