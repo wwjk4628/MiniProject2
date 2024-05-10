@@ -17,8 +17,11 @@ public class PhoneBook {
 		while (!a.equals("5")) {
 		a = view(dao, sc);
 		}
+		
+		System.out.println("DB를 삭제하시겠습니까? y/n");
+		if (sc.nextLine().equals("y"))
+			drop(dao);
 		sc.close();
-		drop(dao);
 
 	}
 
@@ -58,8 +61,7 @@ public class PhoneBook {
 		
 		
 		System.out.print("ID: ");
-		Long id = sc.nextLong();
-		sc.nextLine();
+		Long id = Long.parseLong(sc.nextLine());
 		boolean success = dao.delete(id);
 		System.out.println("삭제 " + success);
 	}
@@ -98,8 +100,11 @@ public class PhoneBook {
 		List<PhoneBookVO> list = new ArrayList<>();
 		
 		list = dao.getList();
+		if (list.size() < 1) {
+			System.out.println("데이터가 없습니다.");
+		}
 		for(PhoneBookVO vo : list) {
-			System.out.printf("%d\t%s\t%s\t%s\n",
+			System.out.printf("%-3d%-4s%s\t%s\n",
 								vo.getId(),
 								vo.getName(),
 								vo.getHp(),

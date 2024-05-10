@@ -126,7 +126,7 @@ public class PhoneBookDAOImpl implements PhoneBookDAO {
 			String sql = """
 					CREATE Table PHONE_BOOK (
 					id NUMBER(10) DEFAULT seq_phone_book.NEXTVAL PRIMARY KEY,
-					name VARCHAR2(10),
+					name VARCHAR2(10) NOT NULL,
 					hp VARCHAR2(20),
 					tel VARCHAR2(20)
 					)
